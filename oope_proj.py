@@ -2,7 +2,7 @@ class chatbook:
     def __init__(self):
         self.username =""
         self.password = ""
-        self.loggedin = False
+        self.logged = False
         self.menu()
     def menu(self):
         user_input = input("""Welcome to chat book whill you like to procedd
@@ -17,9 +17,9 @@ class chatbook:
         elif user_input=='2':
             self.signin()
         elif user_input=='3':
-            pass
+            self.mypost()
         elif user_input=='4':
-            pass
+            self.writeMessage()
         else:
             exit()       
     
@@ -39,9 +39,26 @@ class chatbook:
             pwd = input("Enter your password : ")
             if self.username==uname and self.password==pwd:
                 print("you have successfully signed \n")
-                self.loggedin() = True
+                self.logged = True
             else:
                 print("you have wrong input")
         self.menu()
+    
+    def mypost(self):
+        if self.logged==True:
+            txt = input("Enter your text here")
+            print(f"your msg is:-> {txt}")
+        else:
+            print("Sign in first to post something")
+        self.menu()
+    
+    def writeMessage(self):
+        if self.loggedin==True:
+            msg = input("Enter your message")
+            print(f"your msg is:-> {msg}")
+        else:
+            print("Sign in second to msg something")
+        self.menu()
+            
     
 obj = chatbook()
